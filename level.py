@@ -16,9 +16,13 @@ class Level:
                 x = col_idx*Tilesize
                 y = row_idx*Tilesize
                 if col == 'x':
-                    Tile((x,y),[self.visible_sprites])
+                    Tile((x,y),[self.visible_sprites,self.obstacle_sprites])
+                if col == 'p':
+                    self.player = Player((x,y),[self.visible_sprites],self.obstacle_sprites)
+
 
 
     def run(self):
         self.visible_sprites.draw(self.display_surface)
+        self.visible_sprites.update()
            
